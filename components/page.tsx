@@ -35,11 +35,12 @@ const Home: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [isScrolling, setIsScrolling] = useState(false)
 
+  const sections: Section[] = ['home', 'works', 'contact']
+
   const handleWheel = useCallback((e: WheelEvent) => {
     e.preventDefault()
     if (isScrolling) return
     const scrollThreshold = 100
-    const sections: Section[] = ['home', 'works', 'contact']
     setScrollProgress(prev => {
       const newProgress = prev + Math.abs(e.deltaY)
       if (newProgress >= scrollThreshold) {
@@ -86,6 +87,22 @@ const Home: React.FC = () => {
 
   const getInverseThemeClasses = (isDark: boolean) =>
     isDark ? 'bg-white text-black' : 'bg-black text-white'
+
+  const handleNextSection = () => {
+    const currentIndex = sections.indexOf(activeSection)
+    if (currentIndex < sections.length - 1) {
+      setPreviousSection(activeSection)
+      setActiveSection(sections[currentIndex + 1])
+    }
+  }
+
+  const handlePreviousSection = () => {
+    const currentIndex = sections.indexOf(activeSection)
+    if (currentIndex > 0) {
+      setPreviousSection(activeSection)
+      setActiveSection(sections[currentIndex - 1])
+    }
+  }
 
   return (
     <div className={`h-screen overflow-hidden p-4 sm:p-6 md:p-8 transition-colors duration-300 ease-in-out ${getThemeClasses(isDark)}`}>
@@ -147,7 +164,25 @@ const Home: React.FC = () => {
           Toggle Theme
         </button>
       )}
-      <CursorDot dotSize={dotSize} />
+      <div className="hidden sm:block">
+        <CursorDot dotSize={dotSize} />
+      </div>
+      <div className="block sm:hidden fixed top-1/2 right-4 transform -translate-y-1/2 z-40 flex flex-col items-center space-y-2">
+        <button
+          onClick={handlePreviousSection}
+          className={`px-3 py-2 transition-colors select-none hover:underline duration-300 ease-in-out ${getInverseThemeClasses(isDark)} ${outfit.className}`}
+          aria-label="Previous section"
+        >
+          &uarr;
+        </button>
+        <button
+          onClick={handleNextSection}
+          className={`px-3 py-2 transition-colors select-none hover:underline duration-300 ease-in-out ${getInverseThemeClasses(isDark)} ${outfit.className}`}
+          aria-label="Next section"
+        >
+          &darr;
+        </button>
+      </div>
     </div>
   )
 }
