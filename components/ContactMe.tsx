@@ -32,10 +32,10 @@ const ContactMe: React.FC<ContactMeProps> = ({
   ]
 
   const contactLinks = [
-    { name: 'Email', href: 'mailto:SKeTU-l@proton.me' },
+    { name: 'Email', href: 'mailto:SKetU-l@proton.me' },
     { name: 'LinkedIn', href: 'https://linkedin.com/in/SKetU' },
     { name: 'GitHub', href: 'https://github.com/SKetU-l' },
-    { name: 'Telegram', href: 'https://t.me/SKetUl' },
+    { name: 'Telegram', href: 'https://t.me/sketushub' },
     { name: 'Instagram', href: 'https://instagram.com/SKetU.l' },
   ]
 
