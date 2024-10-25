@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SKetU's Portfolio",
-  description: "Developed using Next.js, React, Tailwind CSS, and Framer Motion.",
+  title: "Debasish Jena",
+  description: "Developed using React, Tailwind CSS, and Framer Motion.",
 };
 
 export default function RootLayout({

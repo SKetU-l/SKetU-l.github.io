@@ -170,14 +170,14 @@ const Home: React.FC = () => {
       <div className="block sm:hidden fixed top-1/2 right-4 transform -translate-y-1/2 z-40 flex flex-col items-center space-y-2">
         <button
           onClick={handlePreviousSection}
-          className={`px-3 py-2 transition-colors select-none hover:underline duration-300 ease-in-out ${getInverseThemeClasses(isDark)} ${outfit.className}`}
+          className={`px-3 py-2 transition-colors select-none hover:underline duration-300 ease-in-out ${getInverseThemeClasses(isDark)} ${outfit.className} ${isMenuOpen ? 'invisible' : ''}`}
           aria-label="Previous section"
         >
           &uarr;
         </button>
         <button
           onClick={handleNextSection}
-          className={`px-3 py-2 transition-colors select-none hover:underline duration-300 ease-in-out ${getInverseThemeClasses(isDark)} ${outfit.className}`}
+          className={`px-3 py-2 transition-colors select-none hover:underline duration-300 ease-in-out ${getInverseThemeClasses(isDark)} ${outfit.className} ${isMenuOpen ? 'invisible' : ''}`}
           aria-label="Next section"
         >
           &darr;
